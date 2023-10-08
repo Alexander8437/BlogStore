@@ -12,7 +12,13 @@ import { db } from "./db.js"
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors(
+    {
+        origin: ["https://blog-store-frontend.vercel.app/"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
+    }
+))
 app.use(cookieParser())
 
 const storage = multer.diskStorage({
@@ -26,14 +32,19 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
-app.post('/api/upload', upload.single('file'), function (req, res) {
-    const file = req.file
-    res.status(200).json(file.filename)
-})
 
 db.connect(function (err) {
     if (err) throw err
     console.log("Database connect")
+})
+
+app.get('/', (req, res) =>{
+    res.json("Hello")
+})
+
+app.post('/api/upload', upload.single('file'), function (req, res) {
+    const file = req.file
+    res.status(200).json(file.filename)
 })
 
 app.use("/api/auth", authRoutes)

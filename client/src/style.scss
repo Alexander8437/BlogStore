@@ -5,7 +5,7 @@ $cutomColor: #adc3d8;
     justify-content: center;
 
     .container {
-        width: 80%;
+        width: 1024px;
 
         .link {
             text-decoration: none;
@@ -67,8 +67,7 @@ $cutomColor: #adc3d8;
         //Navbar
         .navbar {
             .container {
-                width: 123%;
-                margin-left: -120px;
+                width: 100%;
                 padding: 10px 0px;
                 display: flex;
                 justify-content: space-between;
@@ -148,15 +147,24 @@ $cutomColor: #adc3d8;
         footer {
             margin-top: 100px;
             padding: 20px;
-            width: 120%;
-            margin-left: -120px;
-            background-color: $cutomColor;
+            width: 100%;
+            // background-color: $cutomColor;
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
 
             img {
                 width: 100px;
+            }
+            .copyright{
+                display: flex;
+
+                justify-items: center;
+                span{
+                    color: red;
+                }
             }
         }
 
@@ -165,7 +173,7 @@ $cutomColor: #adc3d8;
                 margin-top: 30px;
                 display: flex;
                 flex-direction: column;
-                gap: 80px;
+                gap: 40px;
 
                 .post {
                     display: flex;

@@ -6,16 +6,17 @@ export const AuthContext = createContext()
 export const AuthContextProvider = ({ children }) => {
 
     const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
+
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
+    headers.append('Access-Control-Allow-Origin', 'http://localhost:3001');
+    headers.append('Access-Control-Allow-Credentials', 'true');
 
     const login = async (inputs) => {
+        console.log(headers)
         const res = await axios.post("http://localhost:8801/api/auth/login", inputs, {
-            mode: 'same-origin',
-            redirect: 'follow',
-            credentials: 'include', // Don't forget to specify this if you need cookies
-            headers: headers
+            header: headers
         })
         setCurrentUser(res.data)
     }
