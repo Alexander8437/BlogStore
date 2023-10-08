@@ -19,7 +19,7 @@ const Single = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:8801/api/posts/${postId}`)
+        const res = await axios.get(`https://blog-store-frontend.vercel.app/api/posts/${postId}`)
         setPost(res.data)
       }
       catch (err) {
@@ -31,7 +31,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8801/api/posts/${postId}`)
+      await axios.delete(`https://blog-store-frontend.vercel.app/api/posts/${postId}`)
       navigate("/")
     }
     catch (err) {

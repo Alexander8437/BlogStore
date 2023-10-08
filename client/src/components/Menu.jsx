@@ -11,7 +11,7 @@ const Menu = ({ cat }) => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await axios.get(`http://localhost:8801/api/posts/?cat=${cat}`)
+                const res = await axios.get(`https://blog-store-frontend.vercel.app/api/posts/?cat=${cat}`)
                 setPosts(res.data)
             }
             catch (err) {

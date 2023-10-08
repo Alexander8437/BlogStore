@@ -20,7 +20,7 @@ const Write = () => {
     try {
       const formData = new FormData();
       formData.append('file', file)
-      const res = await axios.post("http://localhost:8801/api/upload", formData)
+      const res = await axios.post("https://blog-store-frontend.vercel.app/api/upload", formData)
       return res.data
     } catch (error) {
       console.log(error)
@@ -42,7 +42,7 @@ const Write = () => {
     console.log(file)
     try {
       state ?
-        await axios.put(`http://localhost:8801/api/posts/${state.id}`, {
+        await axios.put(`https://blog-store-frontend.vercel.app/api/posts/${state.id}`, {
           title,
           des: value,
           cat,
@@ -50,7 +50,7 @@ const Write = () => {
           uid
         })
         :
-        await axios.post(`http://localhost:8801/api/posts/`, {
+        await axios.post(`https://blog-store-frontend.vercel.app/api/posts/`, {
           title,
           des: value,
           cat,

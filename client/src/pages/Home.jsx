@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await axios.get(`http://localhost:8801/api/posts${cat}`)
+                const res = await axios.get(`https://blog-store-frontend.vercel.app/api/posts${cat}`)
                 setPosts(res.data.reverse())
             }
             catch (err) {
