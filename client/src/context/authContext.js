@@ -10,19 +10,19 @@ export const AuthContextProvider = ({ children }) => {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
-    headers.append('Access-Control-Allow-Origin', 'https://blog-store-frontend.vercel.app/');
+    headers.append('Access-Control-Allow-Origin', 'https://blog-store-etbu.vercel.app/');
     headers.append('Access-Control-Allow-Credentials', 'true');
 
     const login = async (inputs) => {
         console.log(headers)
-        const res = await axios.post("https://blog-store-frontend.vercel.app/api/auth/login", inputs, {
+        const res = await axios.post("https://blog-store-etbu.vercel.app/api/auth/login", inputs, {
             header: headers
         })
         setCurrentUser(res.data)
     }
 
     const logout = async (inputs) => {
-        await axios.post("https://blog-store-frontend.vercel.app/api/auth/logout")
+        await axios.post("https://blog-store-etbu.vercel.app/api/auth/logout")
         setCurrentUser(null)
     };
 

@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await axios.get(`https://blog-store-frontend.vercel.app/api/posts${cat}`)
+                const res = await axios.get(`https://blog-store-etbu.vercel.app/api/posts${cat}`)
                 setPosts(res.data.reverse())
             }
             catch (err) {
@@ -24,7 +24,7 @@ const Home = () => {
     return (
         <div className="home">
             <div className="posts">
-                {posts.length !== 0 ? (posts.map((post) => (
+                {posts.length !== 0 ? (posts.map(post => (
                     <div className="post" key={post.id}>
                         <div className="img">
                             <img src={`../uploads/${post.image}`} alt="" />
